@@ -2,7 +2,7 @@
 
 # ====== Variables =============================
 
-gaps_top="30"
+gaps_top="26"
 gaps_bottom="0"
 gaps_left="0"
 gaps_right="0"
@@ -13,10 +13,10 @@ gaps_inner="0"
 
 # 使用 font-awesome 替代罗马数字
 
-yabai -m config status_bar_position bottom
+# yabai -m config status_bar_position bottom
 
-# yabai -m config layout                      bsp
-yabai -m config layout                         float
+yabai -m config layout                      bsp
+# yabai -m config layout                         float
 
 # bar settings
 
@@ -34,8 +34,8 @@ yabai -m config mouse_action1               move
 yabai -m config mouse_action2               resize
 
 yabai -m config window_topmost              off
-yabai -m config window_opacity              off
-yabai -m config window_shadow               float
+yabai -m config window_opacity              0.95
+yabai -m config window_shadow               off
 
 yabai -m config active_window_opacity       1.0
 yabai -m config normal_window_opacity       0.9
