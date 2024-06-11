@@ -9,4 +9,5 @@ elif [ $PHASE = "Break" ]; then
 	COLOR=0xFFE78284
 fi
 
-sketchybar --set $NAME label="$TIME $PHASE" icon="󰄉" icon.color=$COLOR
+sketchybar --set $NAME label="$TIME" icon="󰄉" icon.color=$COLOR
+# $PHASE

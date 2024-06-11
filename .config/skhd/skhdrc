@@ -110,3 +110,6 @@ alt + cmd - 5 : yabai -m window --space 5
 #                  yabai -m config window_border off
 # alt + ctrl - b : yabai -m space --layout bsp && \
 #                  yabai -m config window_border on
+
+shift + alt - e: osascript -e 'tell application "Flow" to stop'
+shift + alt - s: osascript -e 'tell application "Flow" to start'
