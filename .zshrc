@@ -111,3 +111,12 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 # dotfiles
 alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME
+
+# pnpm
+export PNPM_HOME="/Users/adamzh0u/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
