@@ -122,7 +122,7 @@ esac
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
 #motd
-fortune | cowsay | lolcat
+# fortune | cowsay | lolcat
 
 eval "$(starship init zsh)"
 
