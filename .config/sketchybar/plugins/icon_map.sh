@@ -410,6 +410,18 @@ case "$1" in
 "Steam Helper" | "Dota 2")
   icon_result=":linear:"
   ;;
+"Cursor")
+  icon_result=":code:"
+  ;;
+"Feishu")
+  icon_result=":notability:"
+  ;;
+"EuDic")
+  icon_result=":book:"
+  ;;
+"Todesk")
+  icon_result=":desktop:"
+  ;;
 *)
   icon_result=":default:"
   ;;
