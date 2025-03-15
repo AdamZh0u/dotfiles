@@ -1,1 +1,4 @@
-- 
+```bash
+sketchybar --reload 
+```
+
