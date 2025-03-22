@@ -112,6 +112,9 @@ source $ZSH/oh-my-zsh.sh
 
 # ==========================================================================================
 
+# autocomplete
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # alias
 alias p='cd ~'
 alias code='cursor'
@@ -137,4 +140,6 @@ esac
 # add new line at line start 
 precmd() { print "" }
 
-autoload -U compinit; compinit
+# zoxide init 
+eval "$(zoxide init zsh)"
+
