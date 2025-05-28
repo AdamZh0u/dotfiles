@@ -118,7 +118,7 @@ source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # alias
 alias p='cd ~'
 alias code='cursor'
-
+alias python='/opt/homebrew/bin/python3.13'
 # brew 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"

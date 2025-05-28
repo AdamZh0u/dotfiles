@@ -1,6 +1,6 @@
 ##### Flow Plugin #####
 
-sketchybar --add item flow center \
+sketchybar --add item flow left \
            --set flow update_freq=1 \
         	      script="$PLUGIN_DIR/flow.sh" \
 	              click_script="sketchybar -m --set flow popup.drawing=toggle" \
