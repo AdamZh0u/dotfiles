@@ -86,7 +86,6 @@ source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/cpu.sh"
 # source "$ITEM_DIR/svim.sh"
 source "$ITEM_DIR/flowe.sh"
-source "$ITEM_DIR/diana.sh"
 
 sketchybar --hotload on
 
