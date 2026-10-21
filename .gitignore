@@ -1,2 +1,8 @@
 */.DS_Store
 *.zsh_history
+
+# Compiled from helper.c via the makefile next to it, both tracked. Keeping the
+# binary out avoids committing a new 34KB blob on every rebuild, and an arm64
+# Mach-O is useless on the ubuntu branch anyway. Build with:
+#   make -C ~/.config/sketchybar/helper
+.config/sketchybar/helper/helper
