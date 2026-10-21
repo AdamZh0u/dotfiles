@@ -29,7 +29,7 @@ do
     script="$PLUGIN_DIR/space.sh"
   )
 
-  sketchybar --add space space.$sid left    \
+  sketchybar --add space space.$sid left   \
              --set space.$sid "${space[@]}" \
              --subscribe space.$sid mouse.clicked
 done
@@ -46,6 +46,6 @@ space_creator=(
   icon.color=$WHITE
 )
 
-sketchybar --add item space_creator left               \
+sketchybar --add item space_creator left\
            --set space_creator "${space_creator[@]}"   \
            --subscribe space_creator space_windows_change

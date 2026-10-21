@@ -103,13 +103,12 @@ static inline void cpu_update(struct cpu* cpu) {
       snprintf(color, 16, "%s", getenv("LABEL_COLOR"));
     }
 
+    (void)topproc; // top process no longer displayed; cpu.top stays "CPU"
     snprintf(cpu->command, 256, "--push cpu.sys %.2f "
                                 "--push cpu.user %.2f "
-                                "--set cpu.top label='%s' "
                                 "--set cpu.percent label=%.0f%% label.color=%s ",
                                 sys_perc,
                                 user_perc,
-                                topproc,
                                 total_perc*100.,
                                 color          );
   }

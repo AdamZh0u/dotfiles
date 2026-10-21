@@ -20,16 +20,16 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /
 
 # Setting up the general bar appearance of the bar
 bar=(
-  height=32
+  height=41 # 32  40  45
   color=$BAR_COLOR
   border_width=2
   border_color=$BAR_BORDER_COLOR
   shadow=off
   position=top
   sticky=on
-  padding_right=20
-  padding_left=20
-  y_offset=-2
+  padding_right=10
+  padding_left=10
+  y_offset=-2  # -2 
   margin=-1 # 边界 
   topmost=window
 )
@@ -38,8 +38,9 @@ sketchybar --bar "${bar[@]}"
 
 # Setting up default values
 defaults=(
+
   updates=when_shown
-  icon.font="$FONT:Bold:14.0"
+  icon.font="$FONT:Bold:16.0"
   icon.color=$ICON_COLOR
   icon.padding_left=$PADDINGS
   icon.padding_right=$PADDINGS
@@ -64,26 +65,28 @@ defaults=(
 sketchybar --default "${defaults[@]}"
 
 # Left
-source "$ITEM_DIR/apple.sh"
+#source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/yabai.sh"
 source "$ITEM_DIR/front_app.sh"
-
+# source "$ITEM_DIR/menus.sh"
 # Center
 # source "$ITEM_DIR/spotify.sh"
 # source "$ITEM_DIR/media.sh"
-source "$ITEM_DIR/flow.sh"
+# source "$ITEM_DIR/flow.sh"
 
 # Right
 source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/brew.sh"
-source "$ITEM_DIR/email.sh"
-source "$ITEM_DIR/github.sh"
+# source "$ITEM_DIR/brew.sh"
+# source "$ITEM_DIR/email.sh"
+# source "$ITEM_DIR/github.sh"
 # source "$ITEM_DIR/wifi.sh"
-source "$ITEM_DIR/battery.sh"
-source "$ITEM_DIR/volume.sh"
+# source "$ITEM_DIR/battery.sh"
+# source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/cpu.sh"
 # source "$ITEM_DIR/svim.sh"
+source "$ITEM_DIR/flowe.sh"
+source "$ITEM_DIR/diana.sh"
 
 sketchybar --hotload on
 

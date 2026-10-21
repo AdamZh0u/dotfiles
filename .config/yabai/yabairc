@@ -2,12 +2,13 @@
 
 # ====== Variables =============================
 
-gaps_top="26"
+gaps_top="0" # 26
 gaps_bottom="0"
 gaps_left="0"
 gaps_right="0"
 gaps_inner="0"
 
+bar_top="30" # 30 
 
 # ====== Tiling settings =======================
 
@@ -18,6 +19,7 @@ gaps_inner="0"
 yabai -m config layout                      bsp
 # yabai -m config layout                         float
 
+yabai -m config external_bar all:"${bar_top}":0
 # bar settings
 
 yabai -m config top_padding                 "${gaps_top}"
@@ -33,8 +35,9 @@ yabai -m config mouse_modifier              fn
 yabai -m config mouse_action1               move
 yabai -m config mouse_action2               resize
 
-yabai -m config window_topmost              off
-yabai -m config window_opacity              0.95
+# window_topmost 在 yabai v7 已移除，删掉了
+# window_opacity 只接受 on/off；开启后非活动窗口会按 normal_window_opacity 变透明
+yabai -m config window_opacity              off
 yabai -m config window_shadow               off
 
 yabai -m config active_window_opacity       1.0
@@ -43,14 +46,25 @@ yabai -m config split_ratio                 0.5
 yabai -m config auto_balance                off
 
 # ====== Border settings =======================
+# window_border / window_border_width / active_window_border_color
+# 三项在 yabai v7 全部移除，已删掉。边框现在得靠 JankyBorders 之类的外部工具。
 
-yabai -m config window_border  off
-yabai -m config window_border_width         8
-yabai -m config active_window_border_color   0xff775759
-
+# ====== Scripting addition ====================
+# SA 在每次 Dock 重启后会卸载，建/销毁空间就会失效。这条让它自动重载。
+# 不需要密码：/etc/sudoers.d/yabai 里有针对该二进制哈希的 NOPASSWD 条目。
+# 注意 brew 升级 yabai 后哈希会变，必须重新生成那个 sudoers 条目，否则这条静默失效。
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # ====== List of rules =========================
+# yabai -m rule --add app="^Obsidian" space=3
+# yabai -m rule --add app="^Iterm2" space=4
+# yabai -m rule --add app="^Code" space=4
+# yabai -m rule --add app="^Zotero" space=2
+yabai -m rule --add app="^iMovie$" space=4
 
-; # 临时性的App 也就是manage=off不受到yabai平铺式的限制，之前怎么弹出来就怎么弹出来
-; otherApp='^(IINA|访达|Calendar|日历|System Preferences|系统偏好设置|1Password 7|Mail|微信|WeChatc|QQ|Android Studio|印象笔记|Visual Studio Code)$'
-; yabai -m rule --add app="${otherApp}" manage=off
+yabai -m rule --add app='^LICEcap' manage=off
+# 临时性的App 也就是manage=off不受到yabai平铺式的限制，之前怎么弹出来就怎么弹出来
+# 下面两行原本用 ; 开头，bash 会报 syntax error 并在此中断，所以一直没生效。
+# 改成 # 保持「未启用」的现状；想启用就去掉行首 # 和空格。
+# otherApp='^(IINA|访达|Calendar|日历|System Preferences|系统偏好设置|1Password 7|Mail|微信|WeChatc|QQ|Android Studio|印象笔记|Visual Studio Code)$'
+# yabai -m rule --add app="${otherApp}" manage=off

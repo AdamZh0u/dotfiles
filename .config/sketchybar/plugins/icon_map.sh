@@ -20,7 +20,13 @@ case "$1" in
 "Pine")
   icon_result=":pine:"
   ;;
-"Alacritty" | "Hyper" | "iTerm2" | "kitty" | "Terminal" | "终端" | "WezTerm")
+"Ghostty")
+  icon_result=":ghostty:"
+  ;;
+"Termius")
+  icon_result=":desktop:"
+  ;;
+"Alacritty" | "Hyper" | "iTerm2" | "iterm2" | "kitty" | "Terminal" | "终端" | "WezTerm")
   icon_result=":terminal:"
   ;;
 "Podcasts" | "播客")
@@ -49,6 +55,17 @@ case "$1" in
   ;;
 "Kakoune")
   icon_result=":kakoune:"
+  ;;
+"Codex" | "codex")
+  icon_result=":cpu:"
+  ;;
+# The installed sketchybar-app-font (2024 build, 210 glyphs) has no orca glyph,
+# and upstream v2.0.86 only ships :orcaslicer: for the unrelated 3D-print app.
+# :moon: is a solid crescent -- abstract, unused by any other entry, and one of
+# the few glyphs that stays legible at 16pt. Alternatives at that size:
+# :cloud: :keyboard: :snow: :hyper:
+"Orca" | "orca")
+  icon_result=":moon:"
   ;;
 "Code" | "Code - Insiders")
   icon_result=":code:"
@@ -161,7 +178,10 @@ case "$1" in
 "Brave Browser")
   icon_result=":brave_browser:"
   ;;
-"网易云音乐")
+# The macOS app reports "NeteaseMusic" (lowercase e in "ease"); case is
+# case-sensitive, so the Chinese name alone never matched. Upstream
+# sketchybar-app-font spells it "NetEaseMusic", which does not match either.
+"网易云音乐" | "NeteaseMusic" | "NetEaseMusic")
   icon_result=":netease_music:"
   ;;
 "Messages" | "信息" | "Nachrichten")
@@ -181,6 +201,9 @@ case "$1" in
   ;;
 "Cypress")
   icon_result=":cypress:"
+  ;;
+"DBeaver" | "DBeaver Community")
+  icon_result=":sequel_pro:"
   ;;
 "Sequel Pro")
   icon_result=":sequel_pro:"

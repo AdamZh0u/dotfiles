@@ -66,10 +66,13 @@ shift + alt - r : yabai -m space --rotate 270
 # shift + alt - s : yabai -m window --resize top:0:20
 
 
+# 两屏一起切：都切到各屏最后一个桌面，已在最后则都切到各屏第一个
+alt - escape : /Users/adamzh0u/.config/skhd/last_space_toggle.sh
+
 # fast focus desktop (切换空间焦点)
-# cmd + alt - x : yabai -m space --focus recent
-# cmd + alt - z : yabai -m space --focus prev
-# cmd + alt - c : yabai -m space --focus next
+# alt - x : yabai -m space --focus recent
+alt - n : yabai -m space --focus prev
+alt - m : yabai -m space --focus next
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
 alt - 3 : yabai -m space --focus 3
@@ -112,5 +115,5 @@ alt + cmd - 6 : yabai -m window --space 6
 # alt + ctrl - b : yabai -m space --layout bsp && \
 #                  yabai -m config window_border on
 
-shift + alt - e: osascript -e 'tell application "Flow" to stop'
-shift + alt - s: osascript -e 'tell application "Flow" to start'
+# shift + alt - e: osascript -e 'tell application "Flow" to stop'
+# shift + alt - s: osascript -e 'tell application "Flow" to start'
