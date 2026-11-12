@@ -69,6 +69,13 @@ export PATH=/Users/adamzh0u/.opencode/bin:$PATH
 # Mole shell completion
 if output="$(mole completion zsh 2>/dev/null)"; then eval "$output"; fi
 
+# Multica CLI。二进制随 Multica.app 更新，~/.local/bin/multica 是指向
+# Multica.app/Contents/Resources/app.asar.unpacked/resources/bin/multica 的软链。
+# 桌面 app 的登录信息只在 desktop-api.multica.ai 这个 profile 里，默认 profile 是空的
+# （会报 "No server configured"），所以函数默认带上它；再显式传 --profile 会覆盖。
+multica() { command multica --profile desktop-api.multica.ai "$@"; }
+if output="$(command multica completion zsh 2>/dev/null)"; then eval "$output"; fi
+
 #projj
 # 这里会定义一个 p() 目录跳转函数。别在上面给 p 设别名：zsh 不允许用已是别名的
 # 名字定义函数，会报错并让【整个 eval 作废】，projj 的补全会全部丢失。
