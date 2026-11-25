@@ -37,12 +37,9 @@ esac
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# quarto. Guarded: exporting a path that does not exist makes quarto fail with a
-# confusing error instead of falling back to the python on PATH. The old value
-# pointed at ~/300_Main, which no longer exists.
-_quarto_py="$HOME/github.com/AdamZh0u/01_Main/.venv/bin/python"
-[ -x "$_quarto_py" ] && export QUARTO_PYTHON="$_quarto_py"
-unset _quarto_py
+# quarto: no global QUARTO_PYTHON on purpose. Each project that runs Python cells
+# lists jupyter in its own dev deps and renders with `uv run quarto render`, so
+# quarto uses the project's .venv (a global value would override it).
 
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
@@ -80,3 +77,9 @@ if output="$(command multica completion zsh 2>/dev/null)"; then eval "$output"; 
 # 这里会定义一个 p() 目录跳转函数。别在上面给 p 设别名：zsh 不允许用已是别名的
 # 名字定义函数，会报错并让【整个 eval 作废】，projj 的补全会全部丢失。
 command -v projj >/dev/null && eval "$(projj shell-setup zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/adamzh0u/.config/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/adamzh0u/.config/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/adamzh0u/.config/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/adamzh0u/.config/google-cloud-sdk/completion.zsh.inc'; fi
