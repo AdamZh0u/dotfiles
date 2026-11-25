@@ -8,7 +8,7 @@ gaps_left="0"
 gaps_right="0"
 gaps_inner="0"
 
-bar_top="30" # 30 
+bar_top="43" # 30 
 
 # ====== Tiling settings =======================
 
@@ -53,6 +53,8 @@ yabai -m config auto_balance                off
 # SA 在每次 Dock 重启后会卸载，建/销毁空间就会失效。这条让它自动重载。
 # 不需要密码：/etc/sudoers.d/yabai 里有针对该二进制哈希的 NOPASSWD 条目。
 # 注意 brew 升级 yabai 后哈希会变，必须重新生成那个 sudoers 条目，否则这条静默失效。
+# macOS 27 上用的是自编译的打补丁版（asmvik/yabai #2832），yabai formula 已 brew pin，别 upgrade。
+sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # ====== List of rules =========================
